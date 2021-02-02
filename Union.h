@@ -49,6 +49,7 @@ class Union{
                 dataset.push_back(ano);
                 weights.push_back(w);
                 centers.push_back(item);
+                break;
             }
         }
     }
