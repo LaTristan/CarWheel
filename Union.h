@@ -53,5 +53,11 @@ class Union{
             }
         }
     }
+    public:
+    void enQueue(vector<Coordinate>origin,vector<double>ws){
+        for(int i=0;i<origin.size();i++){
+            logIn(origin[i],ws[i]);
+        }
+    }
 };
 #endif
