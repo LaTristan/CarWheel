@@ -17,10 +17,18 @@ class Union{
     //vector<Coordinate>part;
     vector<vector<Coordinate> >dataset;
     vector<Coordinate>centers;
+    vector<double>weights;
     double tolerance;
     public:
     Union(double t){
         tolerance=t;
+    }
+    void toStart(Coordinate first,double w){
+        vector<Coordinate>a;
+        a.push_back(first);
+        dataset.push_back(a);
+        centers.push_back(first);
+        weights.push_back(w);
     }
 };
 #endif
