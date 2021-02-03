@@ -5,7 +5,7 @@
 #include <math.h>
 using namespace std;
 
-#define k 2  //聚类数，可在kmeans算法处作参数
+#define k 4  //聚类数，可在kmeans算法处作参数
 
 struct Tuple  //数据结构
 {
