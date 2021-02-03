@@ -156,6 +156,7 @@ int main()
 	input(tuples);
 	
 	Kmeans(tuples);
-    system("pause");
+    char x=getchar();
+	cout<<x<<endl;
 	return 0;
 }
