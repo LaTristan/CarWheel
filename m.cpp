@@ -17,7 +17,7 @@ float Dist(Tuple t1,Tuple t2)//欧式距离
 {
 	return sqrt((t1.attr1 - t2.attr1)*(t1.attr1 - t2.attr1) + (t1.attr2 - t2.attr2)*(t1.attr2 - t2.attr2));
 }
- 
+
 //决定该样本属于哪一个聚类，传入的是聚类的质心(也是一个组，看作x，y)和一个样本，返回的是label;
 int clusterofTuple(Tuple means[],Tuple tuple)
 {
@@ -31,9 +31,9 @@ int clusterofTuple(Tuple means[],Tuple tuple)
 		}
 	}
 	return label; //找最近质心
- 
+
 }
- 
+
 //获得蔟集的平方误差,用来判断是否还需要继续迭代，传入的是蔟集的质心，以及所有归类好的样本,装着每个蔟集的容器数组，计算该聚类到自己质心的距离，所有距离的加和，返回所有的平方误差
 float getVar(Tuple means[],vector<Tuple> cluster[])
 {
@@ -69,9 +69,9 @@ Tuple getMeans(vector<Tuple> cluster)
 	t.attr1 = meanX / num;
 	t.attr2 = meanY / num;
 	return t;
- 
+
 }
- 
+
 void Kmeans(vector<Tuple> tuples)  //kmeans算法
 {    //定义与初始化
     //首先是要定义一个放置分好的蔟，那就是容器组咯，一个容器放一个蔟
@@ -84,16 +84,16 @@ void Kmeans(vector<Tuple> tuples)  //kmeans算法
 		means[i].attr1 = tuples[i].attr1;
 		means[i].attr2 = tuples[i].attr2;
 	}
- 
+
 	//第一次计算距离，进行分类，得到第一次的类标，容器的话是直接用push_back放置进去
 	int label = 0;
 	for (int i = 0; i < tuples.size(); i++)
 	{
 		label = clusterofTuple(means, tuples[i]);
 		cluster[label].push_back(tuples[i]);
- 
+
 	}
- 
+
     //输出刚开始的蔟
 	for (int i = 0; i < k; i++)
 	{
@@ -104,7 +104,7 @@ void Kmeans(vector<Tuple> tuples)  //kmeans算法
 			cout << t[j].attr1 << " " << t[j].attr2 << " " << endl;
 		}
 	}
- 
+
 	float oldvar = 0;//上一轮平方差
     float newvar = getVar(means,cluster);
 	//循环迭代
@@ -136,7 +136,7 @@ void Kmeans(vector<Tuple> tuples)  //kmeans算法
 				}
 			}
 		}
- 
+
 }
 
 vector<Tuple> input(vector<Tuple> &tuples){  //数据输入，可改读入
@@ -149,7 +149,7 @@ vector<Tuple> input(vector<Tuple> &tuples){  //数据输入，可改读入
 	tuples.push_back(tuple[2]);
 	return tuples;
 }
- 
+
 int main()
 {
     vector<Tuple> tuples;
