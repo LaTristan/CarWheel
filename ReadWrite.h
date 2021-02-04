@@ -29,10 +29,30 @@ class ReadWrite{
     protected:
     MODE mode;
     public:
+    void Clear(){
+        ofstream ofs(f);
+        ofs<<"";
+        ofs.close();
+    }
     ReadWrite(MODE mode,string filePath):mode(mode),f(filePath){}
+    void WriteLine(string line){
+        ofstream ofs(f,ios::app);
+        ofs<<line<<endl;
+        ofs.close();
+    }
+    vector<string> ReadLines(){
+        ifstream ifs(f,ios::in);
+        vector<string>res;
+        string tmp;
+        while(getline(ifs,tmp)){
+            res.push_back(tmp);
+        }
+        ifs.close();
+        return res;
+    }
+    protected:
     void Execute();
 };
-
 void ReadWrite::Execute(){
     cout<<"--Execute"<<endl;
 }
