@@ -9,6 +9,7 @@
 #include "Classify.h"
 using namespace std;
 enum MODE{read,write,check};
+enum GEOM{POINT,LINE,POLYGON,POLYLINE};
 struct DataBlock{
     int id;
     string classname;
@@ -50,10 +51,23 @@ class ReadWrite{
         ifs.close();
         return res;
     }
+    void WriteWktLine(string line,GEOM geom);
     protected:
     void Execute();
 };
 void ReadWrite::Execute(){
     cout<<"--Execute"<<endl;
+}
+void ReadWrite::WriteWktLine(string line,GEOM geom){
+    cout<<"Export to file "<<f<<" with WKT Lines"<<endl;
+    switch(geom){
+        case POINT:
+        cout<<"Point:"<<endl;
+        break;
+        default:
+        cout<<"Error"<<endl;
+        return;
+    }
+    return;
 }
 #endif
