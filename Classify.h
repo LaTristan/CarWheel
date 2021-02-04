@@ -20,6 +20,10 @@ class Classify{
     vector<COORD>centers;
     vector<double>weights;
     double tolerance;
+    protected:
+    vector<COORD> getCenters(){
+        return centers;
+    }
     public:
     Classify(double t):tolerance(t){}
     void insert(COORD coord,double w){

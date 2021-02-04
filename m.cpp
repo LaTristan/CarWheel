@@ -136,7 +136,6 @@ void Kmeans(vector<Tuple> tuples)  //kmeans算法
 				}
 			}
 		}
-
 }
 
 vector<Tuple> input(vector<Tuple> &tuples){  //数据输入，可改读入
