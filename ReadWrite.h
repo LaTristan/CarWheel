@@ -60,14 +60,31 @@ void ReadWrite::Execute(){
 }
 void ReadWrite::WriteWktLine(string line,GEOM geom){
     cout<<"Export to file "<<f<<" with WKT Lines"<<endl;
+    ofstream ofs(f,ios::app);
+    for(int i=0;i<line.size();i++){
+        if(line[i]==','){
+            line.replace(i,1," ");
+        }
+    }
+    istringstream iss(line);
     switch(geom){
         case POINT:
         cout<<"Point:"<<endl;
+        double x,y;
+        iss>>x>>y;
+        ofs<<"POINT("<<x<<" "<<y<<")"<<endl;
+        break;
+        case POLYLINE:
+        break;
+        case LINE:
+        break;
+        case POLYGON:
         break;
         default:
         cout<<"Error"<<endl;
         return;
     }
+    ofs.close();
     return;
 }
 #endif
