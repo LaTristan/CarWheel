@@ -6,8 +6,20 @@
 #include <string>
 #include <vector>
 #include <map>
+#include "Classify.h"
 using namespace std;
 enum MODE{read,write,check};
+struct DataBlock{
+    int id;
+    string classname;
+    COORD coord;
+    DataBlock(){
+        coord.x=0.0;
+        coord.y=0.0;
+        id=0;
+        classname="default";
+    }
+};
 class ReadWrite{
     private:
     ifstream inFile;
