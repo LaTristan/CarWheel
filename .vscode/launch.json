@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch notepad",
+            "request": "launch",
+            "mainClass": "notepad",
+            "projectName": "CarWheel_9c12a747"
+        },
+        {
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
